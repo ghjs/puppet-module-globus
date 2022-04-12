@@ -339,12 +339,6 @@ class globus (
 ) {
 
   $osfamily = $facts.dig('os', 'family')
-  $osmajor = $facts.dig('os', 'release', 'major')
-  $os = "${osfamily}-${osmajor}"
-
-  if String($version) == '4' and $os == 'RedHat-8' {
-    fail("${module_name}: Version 4 is not support on OS ${os}")
-  }
 
   if String($version) == '5' {
     if ! $display_name {
